@@ -1,15 +1,14 @@
-package javaapplication1;
 import java.util.Scanner;
 
 public class NewClass {
 
     public static void main(String[] args) {
-        final double CompactWeekdays = 25.99;
-        final double CompactWeekends = 32.99;
-        final double MidsizeWeekdays = 38.99;
-        final double MidsizeWeekends = 52.99;
-        final double SedanWeekdays = 42.99;
-        final double SedanWeekends = 65.99;
+        double CompactWeekdays = 25.99;
+        double CompactWeekends = 32.99;
+        double MidsizeWeekdays = 38.99;
+        double MidsizeWeekends = 52.99;
+        double SedanWeekdays = 42.99;
+        double SedanWeekends = 65.99;
         
         Scanner input = new Scanner(System.in);
         boolean anotherRental = true;
@@ -31,6 +30,7 @@ public class NewClass {
             int weekends = input.nextInt();
             
             double totalCost = 0;
+            double nationalAverage = 55.00; 
             
             if (carType.equalsIgnoreCase("C")) {
                 totalCost = CompactWeekdays * weekdays + CompactWeekends * weekends;
@@ -42,7 +42,18 @@ public class NewClass {
                 System.out.println("Invalid car type entered.");
             }
             
+
             System.out.println("Total rental cost: $" + totalCost);
+
+            if (totalCost >= nationalAverage + 5.0) {
+                System.out.println("The rental is expensive.");
+            } else if (totalCost <= nationalAverage - 5.0) {
+                System.out.println("The rental is a bargain.");
+            } else {
+                System.out.println("The rental is average.");
+            }
+            
+
             System.out.println("Do you want another rental? (Y/N)");
             String answer = input.next();
             
@@ -52,15 +63,7 @@ public class NewClass {
                 anotherRental = false;
             }
         }
-        
         input.close();
+        System.out.println("Thank you for using the Car Rental Calculator.");
     }
 }
-
-
-
-
-
-
-    
-
